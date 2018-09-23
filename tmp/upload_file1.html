@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+table { width:500px;margin:50px auto 5px; border-collapse:separate;border-spacing:20px; font-size:20px; color:#900; font-family:Arial, Helvetica, sans-serif;}
+table tr { text-align:left; padding:5px;}
+</style>
+
+<script>
+function alter(sel){
+  var fileobj=document.getElementById("file");
+  var formobj=document.getElementById("form1");
+  var flagobj=document.getElementById("flag"); 
+ var flag_cap=document.getElementById("flag_caption"); 
+ fileobj.name=sel.value;
+  formobj.action="getfile_TFBS.php?filename="+sel.value;
+  if(sel.value=="PCTs"||sel.value=="LNCTs" )
+  { flagobj.style.display="none";flag_cap.innerHTML=" ";}
+  else 
+  { flagobj.style.display="block";flag_cap.innerHTML="Flag";}
+}
+
+/*window.onload=function (){
+   var flagobj=document.getElementById("flag"); 
+ var flag_cap=document.getElementById("flag_caption"); 
+ var selobj=document.getElementById("sel");
+ if(sel.value="TFBS_peaks")
+  { flagobj.style.display="block";flag_cap.innerHTML="Flag";}
+}*/
+
+
+function checkfile()
+{
+     var fileobj=document.getElementById("file");
+     if(fileobj.value=="")
+       {alert("please choose file");return false; }
+     else return true;
+}
+</script>
+</head>
+
+<body>
+<form id="form1" action="getfile_TFBS.php?filename=PCTs" enctype="multipart/form-data" method="post" onsubmit="return checkfile()" >
+<table >
+
+<caption>Please upload BED files</caption>
+<th>Type</th>
+<th id="flag_caption"> </th>
+<th>File</th>
+<tr >
+<td width="250" >
+<select id="sel" name="type" onchange="alter(this)"> 
+<option value="PCTs" selected="selected" >protein-coding</option>
+<option value="LNCTs" >lncRNA</option>
+<option value="TFBS_peaks">TFBS_peaks</option>
+</select>
+</td>
+<td ><input id="flag" style="display:none;"  type="text" name="flag" maxlength="10"/></td>
+<td><input id="file" type="file" name="PCTs"/></td>
+</tr>
+<tr>
+<td align="center"><input type="reset" value="Reset" />
+<td align="center" > <input type="submit" value="Submit"/></td>
+</tr>
+</table>
+<hr>
+<h4><em>Notion</em></h4>
+<p >Preparing three input files, e.g.<br>&nbsp;&nbsp;<a href="#" >peak.bed</a> -- A BED file of ChIP-Seq peak loci determinded by peak calling programs such as MACS with fields:<br> &nbsp;&nbsp;&nbsp;"chrom  chromStart      chromEnd        name    score   strand"<br>&nbsp;&nbsp;<a href="#">LNCT.bed</a> -- A BED file of lncRNA genes/transcripts<br>&nbsp;&nbsp;<a href="#">PCT.bed</a>  -- A BED file of protein-coding genes/transcripts<br>
+Note: LNCT denotes long non-coding transcript and PCT is for protein-coding transcript.
+</p>
+</form>
+
+
+</body>
+</html>

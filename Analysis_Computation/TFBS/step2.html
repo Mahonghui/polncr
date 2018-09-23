@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+table { width:400px;margin:50px auto; border-collapse:separate;border-spacing:50px; font-size:20px; color:#900; font-family:Arial, Helvetica, sans-serif;}
+table tr { text-align:left; padding:5px;}
+</style>
+<script type="text/javascript">
+//AJAX	
+function loadXML(){
+var xhr;
+if(window.XMLHttpRequest)
+  xhr=new XMLHttpRequest();
+else 
+  xhr=new ActiveXObject("Microsoft.XMLHTTP");
+
+return xhr;
+}
+ 
+function exec(){
+var midd=window.frames;
+var top=midd.parent;// top 是父页面TFBS，属性为window
+var right=top.frames['right'];//获取右框架的引用。 
+
+var xmlhttp=loadXML();
+
+xmlhttp.onreadystatechange=function (){
+if(xmlhttp.readyState==4 && xmlhttp.status==200)
+  right.document.getElementById("step2").innerHTML=xmlhttp.responseText;
+}
+
+xmlhttp.open("get","exec2.php",true);
+xmlhttp.send();
+}
+
+</script>
+</head>
+<body>
+<p>This step is to report basic statistics of lengths and values of input peak loci, 
+peak counts of protein-coding and lncRNA transcripts.<p/>
+<input type="button" value="Execute" onclick='exec()' />
+</body>
+
+</html>

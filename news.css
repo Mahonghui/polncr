@@ -1,0 +1,57 @@
+.box1{
+ width:100%;
+ padding:0;
+ margin:0;
+ background-color:#FFEFD5;
+ 
+}
+.content a:hover{
+ text-decoration:none;
+ color:red;
+}
+.content a:link,a:visited{
+  
+}
+.box1 .title{
+    width:75%;
+    text-align:center;
+    margin:0 auto;
+    padding:50px 0 10px;
+    font-size:20px;
+    color:#000;
+    font-weight:bold; 
+}
+
+.box1 .sub_title{
+ 
+   text-align:center;
+   padding-left:600px; 
+ 
+}
+
+.box1 .content{
+    width:80%;
+    margin:5px auto;
+    padding:20px;
+    text-indent:20px;
+    font-size:16px;
+    line-height:30px; 
+}
+
+.box1 .content p{
+text-indent:20px; 
+}
+
+.box1 .print{
+ margin:0 auto;
+padding:0 0 20px 0;
+text-align:center;
+padding-left:600px;
+}
+.box .print input{
+
+  margin:0 20px 0;
+
+}
+
+

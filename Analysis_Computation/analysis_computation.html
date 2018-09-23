@@ -1,0 +1,99 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="../unitstyle.css"/>
+  <link rel="icon" href="../images/index.ico" type="image/x-icon" />
+  <title>Analysis and Computation</title>
+  
+  <style type="text/css">
+  .content{background-color:#FFF;padding:30px 0 20px;}
+  .content .chamber{width:90%;margin:0 auto;:border:1px solid #00C;padding:20px 40px;}
+  .content .chamber h1{color:#006;border-bottom:1px solid #900;}
+  .content .chamber p{font-size:16px;line-height:22px;text-indent:15px;color:#006;margin:0 auto;padding-top:30px;}
+  </style>
+  
+  <script type="text/javascript">
+  function displaySubMenu(li) { 
+  var subMenu = li.getElementsByTagName("ul")[0]; 
+  subMenu.style.display ="block";
+  } 
+  function hideSubMenu(li) { 
+  var subMenu = li.getElementsByTagName("ul")[0]; 
+  subMenu.style.display ="none"; 
+  }  
+  </script>
+  </head>
+  
+  <body>
+  <a name="top"></a>
+  <div class="box">
+     <div class="header">
+       <ul>
+         <li><a href="../index.php"><img  id="headerpic" src="../images/logo.png" alt="logo" title="Homepage"/></a><!--扬大logo-->
+         <li class="title"><b>PoLncR</b>: a platform for lncRNA data/information collection, analysis and prediction
+  </li>
+      </ul>
+      <div class="clear"></div>
+     </div>
+     <!--end of header-->
+  
+  <div class="menu">
+      <ul>
+        <li class="parent" onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+       <a href="#"> <font color="#000">Knowledge</font></a>
+        <ul style="display:none;background:#0090FD;width:100%;border-radius:10px;">
+        <li style="border-bottom:1px solid #CF9;"><a href="../Knowledge/Basic_Knowledge.php" target="_self">Basic Concept</a></li>
+        <li><a href="../Knowledge/Well_studied_lncRNAs.php" target="_self">Well-studied lncRNAs</a></li>
+        </ul>           
+        </li>
+        
+          <li class="parent" onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+                                     <a href="#"><font color="#000">Browser</font></a>
+                                     <ul style="display:none;background:#0090FD;width:100%;border-radius:10px;">
+                                        <li style="border-bottom:1px solid #CF9;"><a href="/cgi-bin/gb2/gbrowse/yeast/">GBrowse</a></li>
+                                        <li style="border:none;"><a href="../genomebrowser/"  target="_self">UCSC</a></li>
+                                    </ul>
+                                     </li>
+
+         <li><a href="analysis_computation.html" >Analysis&Computation </a></li>
+         <li><a href="../Tools/index_tool.php" target="_self">Tools</a></li>
+         <li style="border:none;"><a href="../Databases/index_database.php">Databases</a></li>
+     </ul>
+     <div class="clear"></div>
+  </div>
+  <!--网站统一格式结束-->
+  
+ <div class="content">
+ 
+ 	<div class="chamber">
+ 		<h1><a href="SVM/analysis_computation_SVM.html">lncRScan-SVM Server</a>: an online tool for predicting lncRNAs</h1>
+		 <p>LncRScan-SVM aims at classifying protein-coding transcripts (PCTs) and lncRNA transcripts (LNCTs) using support vector machine (SVM).</br>Original paper: <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0139654">lncRScan-SVM: A Tool for Predicting Long Non-Coding RNAs Using Support Vector Machine.</a></p>
+ 	</div>
+    
+ 	<div class="chamber">
+ 		<h1><a href="TFBS/analysis_computation_TFBS.html">lncRScan-TFBS Server</a>: an online tool for analysing transcription factor binding sites of lncRNAs</h1>
+ 		<p>Long non-coding RNAs (lncRNAs) differ from protein coding genes as they cannot be translated into available amino acid sequences for protein production even though they go through similar transcription procedure as their counterpart. However, it is unknown exactly how such two kinds of genes are regulated differently during expression. The lncRScan-TFBS toolkit is used to analyze the TFBSs of the lncRNAs from several aspects, including reporting basic statistics of input ChIP-Seq peaks of transcription factors (TFs), associating the peaks with transcription start sites (TSSs), conducting motif finding and enrichment analysis for the lncRNA and protein-coding genes by calling several sophisticated programs such as MEME suite, Weeder and PscanChIP.</p>
+ 	</div>
+    
+ 	<div class="chamber">
+ 		<h1><a href="#">TOOL3</a></h1>
+ 		<p>此处添加该工具说明</p>
+ 	</div>
+    
+ </div><!--end of content-->
+ </div><!--end of content-->
+ 
+  <div class="footer">
+ 
+    <p>Copyright © 2016 <a href="http://www.yzu.edu.cn">YangZhou University</a> | 
+                  Designed by <a href="http://sc.chinaz.com/" target="_parent">PoLncR</a> | 
+                  Validate <a href="http://validator.w3.org/check?uri=referer">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></p>
+  </div>
+  <!--end of footer-->
+    <div style="width:45px;height:80px;position:fixed;right:5px;bottom:50px;"><a href="#top">
+    <img src="../images/backtop.png" alt="backtotop"></a></div>
+    <!--回到顶部-->
+  </body>
+  </html>

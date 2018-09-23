@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+table { width:500px;margin:50px auto 5px; border-collapse:separate;border-spacing:20px; font-size:20px; color:#900; font-family:Arial, Helvetica, sans-serif;}
+table tr { text-align:left; padding:5px;}
+</style>
+
+<script>
+function alter(sel){
+  var fileobj=document.getElementById("file");
+  var formobj=document.getElementById("form1");
+  var flagobj=document.getElementById("flag"); 
+ var flag_cap=document.getElementById("flag_caption"); 
+ fileobj.name=sel.value;
+  formobj.action="getfile_TFBS.php?filename="+sel.value;
+  if(sel.value=="PCTs"||sel.value=="LNCTs" )
+  { flagobj.style.display="none";flag_cap.innerHTML=" ";}
+  else 
+  { flagobj.style.display="block";flag_cap.innerHTML="Flag";}
+}
+
+/*window.onload=function (){
+   var flagobj=document.getElementById("flag"); 
+ var flag_cap=document.getElementById("flag_caption"); 
+ var selobj=document.getElementById("sel");
+ if(sel.value="TFBS_peaks")
+  { flagobj.style.display="block";flag_cap.innerHTML="Flag";}
+}*/
+
+
+function checkfile(formobj)
+{
+for(var i=0;i<formobj.elements.length;i++)
+{
+   if(formobj.elements[i].type == 'file'&&formobj.elements[i].value == "")
+   {
+     alert("please select  files");	
+     return false;
+     }
+}
+return true;
+     
+}
+
+ function insert_Cell(){
+  var insert_obj=document.getElementById("My_table").insertRow(2);
+  var count=document.getElementById("TFBS_count").value;
+  count++;
+  var filename="TFBS_peaks"+count;
+  var x=insert_obj.insertCell(0);
+  var y=insert_obj.insertCell(1);
+  var z=insert_obj.insertCell(2);
+  var bu=insert_obj.insertCell(3);
+  x.innerHTML="TFBS_peaks";
+  y.innerHTML="<input type='file' name="+filename+"  id='test' />";
+  z.innerHTML="<input type='text' name='TFBS_flag'+count />";
+  document.getElementById("TFBS_count").value=count;
+  bu.innerHTML="<input type='button' value='Del' onclick='remove_Row(this)'/>";
+}
+
+function remove_Row(input_child)
+{
+ var parent=input_child.parentNode.parentNode.parentNode
+ var tr_child=input_child.parentNode.parentNode;
+ parent.removeChild(tr_child);
+ document.getElementById("TFBS_count").value--;
+}
+
+</script>
+</head>
+
+<body>
+<form id="form1" action="getfile_TFBS.php" enctype="multipart/form-data" method="post" onsubmit="return checkfile(this)" >
+<table id="My_table" >
+
+<caption>Please upload BED files</caption>
+
+<tr>
+<td>PCTs:</td>
+<td><input type="file" name="PCTs"/> </td>
+<td><input type="text" name="PCT_flag"/></td>
+</tr>
+<tr>
+
+<td>LNCTs:</td>
+<td><input type="file" name="LNCTs"/> </td>
+<td><input type="text" name="LNCT_flag"/></td>
+</tr>
+<tr>
+<td>TFBS_peaks:</td>
+<td><input type="file" name="TFBS_peaks1"/> </td>
+<td><input type="text" name="TFBS_flag1" width="50px"/></td>
+<td><input type="button" value="Add" onclick="insert_Cell()"/></td>
+</tr>
+<tr>
+<td>Species:</td>
+<td>
+<select name="species">
+<option value="mm10" selected="selected">mm10</option>
+<option value="hg19" >hg19</option>
+</select>
+</td>
+</tr>
+<tr>
+<td><input type='hidden' value='1' id='TFBS_count' name='TFBS_count' ></tad>
+</tr>
+<tr>
+<td align="center"><input type="reset" value="Reset" />
+<td align="center" > <input type="submit" value="Submit"/></td>
+</tr>
+</table>
+<hr>
+<h4><em>Notion</em></h4>
+<p >Preparing three input files, e.g.<br>&nbsp;&nbsp;<a href="#" >peak.bed</a> -- A BED file of ChIP-Seq peak loci determinded by peak calling programs such as MACS with fields:<br> &nbsp;&nbsp;&nbsp;"chrom  chromStart      chromEnd        name    score   strand"<br>&nbsp;&nbsp;<a href="#">LNCT.bed</a> -- A BED file of lncRNA genes/transcripts<br>&nbsp;&nbsp;<a href="#">PCT.bed</a>  -- A BED file of protein-coding genes/transcripts<br>
+Note: LNCT denotes long non-coding transcript and PCT is for protein-coding transcript.
+</p>
+</form>
+
+
+</body>
+</html>

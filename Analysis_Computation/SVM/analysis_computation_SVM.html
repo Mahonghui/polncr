@@ -1,0 +1,126 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="../../unitstyle.css"/>
+  <link rel="icon" href="../../images/index.ico" type="image/x-icon" />
+  <title>ananlysis_computation SVM</title>
+  <style type="text/css">
+ 
+  .content {height:500px;background-color:#FFF;padding-top:15px;}
+  .content h1 {padding:10px 20px 0;border-bottom:1px solid #003;color:#006}
+  .content select{width:100px;height:25px;font-size:14px;margin-left:10px;padding-left:5px;}
+  .content table{font-size:16px;}
+  tr {width:100px;height:50px;}
+
+  </style>
+  <script type="text/javascript">
+  function displaySubMenu(li) { 
+  var subMenu = li.getElementsByTagName("ul")[0]; 
+  subMenu.style.display ="block";
+  } 
+  function hideSubMenu(li) { 
+  var subMenu = li.getElementsByTagName("ul")[0]; 
+  subMenu.style.display ="none"; 
+  }  
+  </script>
+  </head>
+  
+  <body>
+  <a name="top"></a>
+  <div class="box">
+     <div class="header">
+       <ul>
+         <li><a href="../../index.php"><img  id="headerpic" src="../../images/logo.png" alt="logo" title="Homepage"/></a>
+         <li class="title"><b>PoLncR</b>: a platform for lncRNA data/information collection, analysis and prediction
+  </li>
+      </ul>
+      <div class="clear"></div>
+     </div>
+  <!--end of header-->
+  <div class="menu">
+      <ul>
+        <li class="parent" onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+       <a href="#"><font color="#000">Knowledge</font></a>
+        <ul style="display:none;background:#0090FD;width:100%;border-radius:10px;">
+        <li style="border-bottom:1px solid #CF9;"><a href="../../Knowledge/Basic_Knowledge.php" target="_self">Basic Concept</a></li>
+        <li><a href="../../Knowledge/Well_studied_lncRNAs.php" target="_self">Well-studied lncRNAs</a></li>
+        </ul>           
+        </li>
+        
+          <li class="parent" onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+                                     <a href="#"><font color="#000">Browser</font></a>
+                                     <ul style="display:none;background:#0090FD;width:100%;border-radius:10px;">
+                                        <li style="border-bottom:1px solid #CF9;"><a href="/cgi-bin/gb2/gbrowse/yeast/">GBrowse</a></li>
+                                        <li style="border:none;"><a href="../../../genomebrowser/"  target="_self">UCSC</a></li>
+                                    </ul>
+                                     </li>
+
+         <li><a href="../analysis_computation.html" >Analysis&Computation </a></li>
+         <li><a href="../../Tools/index_tool.php" target="_self">Tools</a></li>
+         <li style="border:none;"><a href="../../Databases/index_database.php">Databases</a></li>
+     </ul>
+     <div class="clear"></div>
+  </div>
+  <!--end of menu-->
+  
+ <div class="content">
+ <h1>This page provides lncRScan-SVM online service.</h1>
+<form name="form1" action="lncrscan_svm_backend.php" method="post" enctype="multipart/form-data">
+<table style="width:400px;margin:20px auto 0;" cellspacing="0" cellpadding="10">
+<tr>
+<td align="right">Species:</td>
+<td >
+<select name="Species" >
+<option value="hg19">hg19</option>
+<option value="mm10">mm10</option>
+</select>
+</td>
+</tr>
+
+<tr >
+<td align="right">Software Version:</td>
+<td>
+<select name="Version">
+<option value="Version 1.0.1">V1.0.1</option>
+</select>
+</td>
+</tr>
+
+<tr >
+<td align="right">Uplaod GTF:</td>
+<td>
+<input type="file" name="upload" style="width:200px;height:28px;font-family:'Comic Sans MS', cursive;font-size:14px;margin-left:10px;padding-left:5px;">
+</td>
+</tr>
+
+<tr>
+<td align="right">
+<input type="submit" value="Submit" style="font-size:18px;">
+</td>
+<td>
+<input type="reset" value="Reset" style="font-size:18px;margin-left:10px;">
+</td>
+</tr>
+</table>
+</form>
+
+<h1>Alternatively, you can download the lncRScan-SVM package from:</h1>
+<p style="font-weight:bold;text-align:center;font-size:24px;color:#003;padding-top:20px; "><a href="https://sourceforge.net/projects/lncrscansvm/"><em>~Download page~</em></a></p>
+ </div>
+ <!--end of content-->
+  </div>
+ <!--end of content-->
+ 
+  <div class="footer">
+  
+    <p>Copyright © 2016 <a href="http://www.yzu.edu.cn">YangZhou University</a> | 
+                  Designed by <a href="http://sc.chinaz.com/" target="_parent">PoLncR</a> | 
+                  Validate <a href="http://validator.w3.org/check?uri=referer">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></p>
+  </div>
+  <!--end of footer-->
+    <div style="width:45px;height:80px;position:fixed;right:5px;bottom:50px;"><a href="#top">
+    <img src="../../images/backtop.png" alt="backtotop"></a></div>
+    <!--回到顶部-->
+  </body>
+  </html>

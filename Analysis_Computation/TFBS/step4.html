@@ -1,0 +1,48 @@
+<!DCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>STEP1</title>
+<script>
+//AJAX
+function loadXML(){
+        var xhr;
+        if(window.XMLHttpRequest)
+           xhr=new XMLHttpRequest();
+           else
+           xhr=new ActiveXObject("Microsoft.XMLHTTP");
+           return xhr;
+        }
+
+function start(){
+//向right框架写入内容
+var midd=window.frames;
+var top=midd.parent;// top 是父页面TFBS，属性为window
+var right=top.frames['right'];//获取右框架的引用。
+
+var xmlhttp=loadXML();
+var response;
+xmlhttp.onreadystatechange=function (){
+        if(xmlhttp.readyState==4&&xmlhttp.status==200)
+          right.document.getElementById("step4").innerHTML=xmlhttp.responseText;
+        };
+
+        xmlhttp.open("get","exec4.php",true);
+        xmlhttp.send();
+}
+
+</script>
+</head>
+
+
+<body>
+
+<div >
+ <p>
+Step4
+</p>
+</div>
+
+<input type="button" onclick="start()" value="Execute"/>
+</body>
+</html>

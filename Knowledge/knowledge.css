@@ -1,0 +1,11 @@
+  //CSS DOCUMENT
+
+   headderpic {padding-top:10px;}
+  .content {width:100%;background-color:#FFF;}
+  .content h2{color:#006;font-size:24px;border-bottom:1px solid #900;padding:10px 40px 5px;margin:0px;}
+  .content .index{padding:10px 30px;font-size:16px;}
+  .content .index li{list-style:none;}
+  .content .box1 {width:95%;margin:0 auto;font-size:16px;color:#006;padding:0 20px;}
+  .content .box1 h3{color:#006;border-bottom:1px solid #900;padding:0 10px;}
+  .content .box1 ul{list-style:disc;padding:0 20px;}
+  .box1 ul li {list-style:disc;}
